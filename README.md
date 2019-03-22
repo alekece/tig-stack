@@ -4,12 +4,7 @@
 
     $ git clone https://github.com/alekece/tig-stack.git
     $ cd tig-stack
-    $ docker-compose -f docker-compose.yml up -d
-
-
-## Additional Info
-* By default Grafana will have all available plugins installed.   
-* To access grafana go to: `http://localhost:3000`   
+    $ docker-compose up -d 
 
 ## Environment
 ### Grafana  
@@ -37,11 +32,10 @@
 
 ## Ports
 Grafana:   
-    - `3000` - in Docker   
-    - `3001` - on Host   
+    - `3000`  
 InfluxDB:   
     - `8083`   
     - `8086`   
 
 ## License
-Copyright © 2016-2018 Mateusz Trojak. See LICENSE for details.
+Copyright © 2019 ALexis Le Provost. See LICENSE for details.
