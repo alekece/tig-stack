@@ -79,7 +79,7 @@ then
     "url":"http://influxdb:8086",
     "access":"proxy",
     "basicAuth":false,
-    "database":"telegraf",
+    "database": '${GF_DATABASE}',
     "user":"grafana",
     "password":"grafana"}
   ' \

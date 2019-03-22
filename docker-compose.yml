@@ -9,8 +9,8 @@ services:
             - 8086:8086
         environment:
             INFLUX_DATABASE: "metrics"
-            INFLUX_ADMIN_USER: "admin"
-            INFLUX_ADMIN_PASS: "admin"
+            INFLUX_ADMIN_USER: "grafana"
+            INFLUX_ADMIN_PASS: "grafana"
         volumes:
             - /var/lib/influxdb
         networks:
@@ -34,6 +34,7 @@ services:
             GF_AUTH_ANONYMOUS_ORG_NAME: grafana
             GF_DASHBOARDS_JSON_ENABLED: "true"
             GF_DASHBOARDS_JSON_PATH: /opt/grafana
+            GF_DATABASE: "metrics"
         volumes:
             - /var/lib/grafana
             - /var/log/grafana
