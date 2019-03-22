@@ -1,6 +1,7 @@
 FROM telegraf:latest
 MAINTAINER Alexis Le Provost <alexis.leprovost@outlook.com>
-LABEL version="1.0"
+
+LABEL version="1.0.0"
 LABEL description="Telegraf docker image"
 
 USER root
