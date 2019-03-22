@@ -8,11 +8,6 @@ CURR_TIMESTAMP=`date +%s`
 INFLUX_HOST="localhost"
 INFLUX_API_PORT="8086"
 
-[ "${INFLUX_ADMIN_USER}" = "" ] &&
-        INFLUX_ADMIN_USER="grafana"
-[ "${INFLUX_ADMIN_PASS}" = "" ] &&
-        INFLUX_ADMIN_PASS="grafana"
-
 mv -v $CONFIG_FILE $CONFIG_FILE.$CURR_TIMESTAMP
 cp -v $CONFIG_TEMPLATE $CONFIG_FILE
 
