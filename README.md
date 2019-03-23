@@ -44,7 +44,7 @@ $ docker-compose up -d
     $ usermod -aG docker $USER
     ```
 
-    3. Reboot your machine
+    1. Reboot your machine
 
 Then access graphana at `http://localhost:3000`.
 
