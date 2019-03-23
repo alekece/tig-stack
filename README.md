@@ -1,7 +1,7 @@
-# TIG stack (*T*elegraf/*I*nfluxDB/*G*rafana)
-[Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) is a plugin-driven server agent for collecting and reporting metrics.
-[InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) handle massive amounts of time-stamped information.
-[Grafana](https://grafana.com/) is an open platform for beautiful analytics and monitoring.
+# TIG stack (**T**elegraf/**I**nfluxDB/**G**rafana)
+[Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) is a plugin-driven server agent for collecting and reporting metrics.  
+[InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) handle massive amounts of time-stamped information.  
+[Grafana](https://grafana.com/) is an open platform for beautiful analytics and monitoring.  
 
 ## Requirements
 As docker images, TIG stack needs:
@@ -20,6 +20,9 @@ To be installed on your machine.
 * **INFLUXDB_DATABASE** - database name
 * **INFLUXDB_ADMIN_USER** - admin user
 * **INFLUXDB_ADMIN_PASSWORD** - admin password
+* **GRAFANA_PORT** - monitoring port
+* **GRAFANA_USER** - monitoring user
+* **GRAFANA_PASSWORD** - monitoring password
 
 Modify it according to your needs and build your custom TIG stack:
 
@@ -35,7 +38,7 @@ $ docker-compose up -d
     $ sudo groupadd docker
     ``` 
 
-    2. Add your user to the `docker` group:
+    1. Add your user to the `docker` group:
 
     ```bash
     $ usermod -aG docker $USER
@@ -45,7 +48,5 @@ $ docker-compose up -d
 
 Then access graphana at `http://localhost:3000`.
 
-
-If any 
 ## License
 Copyright © 2019 ALexis Le Provost. See LICENSE for details.
