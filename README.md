@@ -1,41 +1,51 @@
 # TIG stack (*T*elegraf/*I*nfluxDB/*G*rafana)
+[Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) is a plugin-driven server agent for collecting and reporting metrics.
+[InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) handle massive amounts of time-stamped information.
+[Grafana](https://grafana.com/) is an open platform for beautiful analytics and monitoring.
+
+## Requirements
+As docker images, TIG stack needs:
+
+* docker v18.* at least
+* docker-compose v1.2* at least
+
+To be installed on your machine.
 
 ## How to use it?
+`.env` to the root directory exposes environment variables:
 
-    $ git clone https://github.com/alekece/tig-stack.git
-    $ cd tig-stack
-    $ docker-compose up -d 
+* **TELEGRAF_HOST** - agent hostname
+* **INFLUXDB_HOST** - database hostname
+* **INFLUXDB_PORT** - database port
+* **INFLUXDB_DATABASE** - database name
+* **INFLUXDB_ADMIN_USER** - admin user
+* **INFLUXDB_ADMIN_PASSWORD** - admin password
 
-## Environment
-### Grafana  
-`GF_SECURITY_ADMIN_USER` - Admin Username. Default: `admin`  
-`GF_SECURITY_ADMIN_PASSWORD`- Admin User Password. Default:`admin`  
-`GF_SECURITY_SECRET_KEY` - Secret key. Default: `grafana`  
-`GF_USERS_ALLOW_SIGN_UP` - Allow singup to Grafana. Default: `"true"`  
-`GF_USERS_ALLOW_ORG_CREATE` - Allow user create new Orgs. Default: `"true"`  
-`GF_AUTH_ANONYMOUS_ENABLED` - Anonymus autthorization enabled. Default: `"true"`  
-`GF_AUTH_ANONYMOUS_ORG_NAME` - Anonymus defaul Org Name. Default: `grafana`   
-`GF_DASHBOARDS_JSON_ENABLED` - Dashboards as JSON enabled. Default: `"true"`   
-`GF_DASHBOARDS_JSON_PATH` - Path where JSON Dashboards are stored. Default: `/opt/grafana`   
-`GRAFANA_PLUGINS_ENABLED` - Install all available Grafana Plugins. Default: `true`
+Modify it according to your needs and build your custom TIG stack:
 
-### InfluxDB  
-`INFLUX_DATABASE` - InfluxDB Database Name. Default:  `"telegraf"`   
-`INFLUX_ADMIN_USER` - InfluxDB Admin Username. Default: `"grafana"`  
-`INFLUX_ADMIN_PASS` - InfluxDB Admin Password. Default: `"grafana"`    
+```bash
+$ docker-compose up -d 
+```
 
-### Telegraf  
-`HOST_NAME` - Telegraf Default Hostane. Default: `"telegraf"`  
-`INFLUXDB_HOST` - IndluxDB Database Host. Default: `"influxdb"`  
-`INFLUXDB_PORT` - InfluxDB Default Port. Default: `"8086"`  
-`DATABASE` - InfluxDB Database where telegraf stores data. Default: `"telegraf"`  
+### Known issues
+* `docker-compose` command fails for non-root user
+    1. Create the `docker` group if not exists:
 
-## Ports
-Grafana:   
-    - `3000`  
-InfluxDB:   
-    - `8083`   
-    - `8086`   
+    ```bash
+    $ sudo groupadd docker
+    ``` 
 
+    2. Add your user to the `docker` group:
+
+    ```bash
+    $ usermod -aG docker $USER
+    ```
+
+    3. Reboot your machine
+
+Then access graphana at `http://localhost:3000`.
+
+
+If any 
 ## License
 Copyright © 2019 ALexis Le Provost. See LICENSE for details.
