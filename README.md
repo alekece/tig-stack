@@ -1,4 +1,4 @@
-# TIG stack (**T**elegraf/**I**nfluxDB/**G**rafana)
+# TIG stack (Telegraf/InfluxDB/Grafana)
 [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) is a plugin-driven server agent for collecting and reporting metrics.  
 [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) handle massive amounts of time-stamped information.  
 [Grafana](https://grafana.com/) is an open platform for beautiful analytics and monitoring.  
