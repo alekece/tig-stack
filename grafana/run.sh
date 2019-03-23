@@ -42,9 +42,6 @@ INFLUXDB_DATA_SOURCE_WEB=`echo ${INFLUXDB_DATA_SOURCE} | sed 's/ /%20/g'`
 
 # Set information about grafana host
 GRAFANA_URL=`hostname -i`
-GRAFANA_PORT="3000"
-GRAFANA_USER="admin"
-GRAFANA_PASSWORD="admin"
 
 # Check $INFLUXDB_DATA_SOURCE status
 INFLUXDB_DATA_SOURCE_STATUS=`curl -s -L -i \
@@ -76,12 +73,12 @@ then
    -X POST -d '{
     "name":"'"${INFLUXDB_DATA_SOURCE}"'",
     "type":"influxdb",
-    "url":"http://influxdb:8086",
+    "url":"http://'"${INFLUXDB_HOST}"':'"${INFLUXDB_PORT}"'",
     "access":"proxy",
     "basicAuth":false,
-    "database": '${GF_DATABASE}',
-    "user":"grafana",
-    "password":"grafana"}
+    "database": "'"${INFLUXDB_DATABASE}"'",
+    "user":"'"${INFLUXDB_ADMIN_USER}"'",
+    "password":"'"${INFLUXDB_ADMIN_PASSWORD}"'"}
   ' \
   http://${GRAFANA_USER}:${GRAFANA_PASSWORD}@${GRAFANA_URL}:${GRAFANA_PORT}/api/datasources
 else
