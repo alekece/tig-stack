@@ -5,42 +5,13 @@ services:
         build: ./influxdb
         container_name: influxdb
         ports:
-            - 8083:8083
-            - 8086:8086
-        environment:
-            INFLUX_DATABASE: "metrics"
-            INFLUX_ADMIN_USER: "grafana"
-            INFLUX_ADMIN_PASS: "grafana"
+            - ${INFLUXDB_PORT}:${INFLUXDB_PORT}
         volumes:
             - /var/lib/influxdb
+        env_file:
+            - .env
         networks:
             - backend
-            - frontend
-
-    grafana:
-        build: ./grafana
-        container_name: grafana
-        ports: 
-            - 3000:3000
-        links:
-            - influxdb
-        environment:
-            GF_SECURITY_ADMIN_USER: admin
-            GF_SECURITY_ADMIN_PASSWORD: admin
-            GF_SECURITY_SECRET_KEY: grafana
-            GF_USERS_ALLOW_SIGN_UP: "true"
-            GF_USERS_ALLOW_ORG_CREATE: "true"
-            GF_AUTH_ANONYMOUS_ENABLED: "true"
-            GF_AUTH_ANONYMOUS_ORG_NAME: grafana
-            GF_DASHBOARDS_JSON_ENABLED: "true"
-            GF_DASHBOARDS_JSON_PATH: /opt/grafana
-            GF_DATABASE: "metrics"
-        volumes:
-            - /var/lib/grafana
-            - /var/log/grafana
-            - /var/lib/grafana/plugins
-        restart: always
-        networks:
             - frontend
 
     telegraf:
@@ -48,16 +19,30 @@ services:
         container_name: telegraf
         links:
             - influxdb
-        environment:
-            HOST_NAME: "telegraf"
-            INFLUXDB_HOST: "influxdb"
-            INFLUXDB_PORT: "8086"
-            DATABASE: "metrics"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
         privileged: true
+        env_file:
+            - .env
         networks: 
             - backend
+            
+    grafana:
+        build: ./grafana
+        container_name: grafana
+        ports: 
+            - ${GRAFANA_PORT}:${GRAFANA_PORT}
+        links:
+            - influxdb
+        volumes:
+            - /var/lib/grafana
+            - /var/log/grafana
+            - /var/lib/grafana/plugins
+        restart: always
+        env_file:
+            - .env
+        networks:
+            - frontend
 
 networks:
     backend:
