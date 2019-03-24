@@ -8,6 +8,7 @@ services:
             - ${INFLUXDB_PORT}:${INFLUXDB_PORT}
         volumes:
             - /var/lib/influxdb
+        restart: always
         env_file:
             - .env
         networks:
@@ -22,6 +23,7 @@ services:
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
         privileged: true
+        restart: always
         env_file:
             - .env
         networks: 
