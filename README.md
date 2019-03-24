@@ -9,7 +9,11 @@ As docker images, TIG stack needs:
 * docker v18.* at least
 * docker-compose v1.2* at least
 
-To be installed on your machine.
+To be installed on your machine.  
+Furthermore some metrics are gathered by thirdparty tools:
+
+* lm_sensors - get sensors temperatures
+* hddtemp - get HDD temperatures
 
 ## How to use it?
 `.env` to the root directory exposes environment variables:
