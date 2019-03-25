@@ -11,7 +11,10 @@ chown -R grafana:grafana /etc/grafana
 # Install all available plugins
 if [ "${GRAFANA_PLUGINS_ENABLED}" != "false" ]
 then
-  GRAFANA_PLUGINS=`grafana-cli plugins list-remote | awk '{print $2}'| grep "-"`
+  if [ -z "${GRAFANA_PLUGINS}" ]
+  then
+    GRAFANA_PLUGINS=`grafana-cli plugins list-remote | awk '{print $2}'| grep "-"`
+  fi
   for plugin in ${GRAFANA_PLUGINS}; 
   do
     if [ ! -d ${GF_PATHS_PLUGINS}/$plugin ]
