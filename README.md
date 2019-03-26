@@ -23,6 +23,8 @@ To be installed on your machine.
 * **GRAFANA_PORT** - monitoring port
 * **GRAFANA_USER** - monitoring user
 * **GRAFANA_PASSWORD** - monitoring password
+* **GRAFANA_PLUGINS_ENABLED** - enable monitoring plugins
+* **GRAFANA_PLUGINS** - monitoring plugins list (fetch all available plugins if empty)
 
 Modify it according to your needs and build your custom TIG stack:
 
