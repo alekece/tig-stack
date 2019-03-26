@@ -7,7 +7,7 @@ services:
         ports:
             - ${INFLUXDB_PORT}:${INFLUXDB_PORT}
         volumes:
-            - /var/lib/influxdb
+            - /var/lib/influxdb:/var/lib/influxdb
         restart: always
         env_file:
             - .env
