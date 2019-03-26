@@ -988,7 +988,7 @@
       "steppedLine": true,
       "targets": [
         {
-          "alias": "$tag_interface/$col",
+          "alias": "$tag_interface$col",
           "groupBy": [
             {
               "params": [
@@ -1028,13 +1028,13 @@
               },
               {
                 "params": [
-                  "10s"
+                  "1s"
                 ],
-                "type": "derivative"
+                "type": "non_negative_derivative"
               },
               {
                 "params": [
-                  "recv"
+                  "_recv"
                 ],
                 "type": "alias"
               }
@@ -1052,13 +1052,13 @@
               },
               {
                 "params": [
-                  "10s"
+                  "1s"
                 ],
-                "type": "derivative"
+                "type": "non_negative_derivative"
               },
               {
                 "params": [
-                  "sent"
+                  "_sent"
                 ],
                 "type": "alias"
               }
@@ -1072,7 +1072,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Network traffic",
+      "title": "Network traffic (bytes/s)",
       "tooltip": {
         "shared": true,
         "sort": 2,
@@ -1333,7 +1333,7 @@
           "groupBy": [
             {
               "params": [
-                "5m"
+                "1m"
               ],
               "type": "time"
             },
@@ -1426,7 +1426,7 @@
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -1572,8 +1572,8 @@
     },
     {
       "aliasColors": {
-        "free": "semi-dark-green",
-        "used": "dark-red"
+        "free": "light-yellow",
+        "used": "light-green"
       },
       "bars": false,
       "cacheTimeout": null,
@@ -1691,6 +1691,7 @@
               "type": "fill"
             }
           ],
+          "hide": false,
           "measurement": "swap",
           "orderByTime": "ASC",
           "policy": "default",
@@ -1737,7 +1738,7 @@
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -1803,7 +1804,7 @@
             },
             {
               "params": [
-                "linear"
+                "previous"
               ],
               "type": "fill"
             }
@@ -1878,7 +1879,7 @@
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
