@@ -10,6 +10,8 @@ sed -e "s/\${TELEGRAF_HOST}/$TELEGRAF_HOST/" \
     -e "s/\${INFLUXDB_DATABASE}/$INFLUXDB_DATABASE/" \
     $CONFIG_TEMPLATE > $CONFIG_FILE
     
+hddtemp -d --listen localhost --port 7634 /dev/sd*
+
 echo "=> Starting Telegraf ..."
 
 exec telegraf -config /etc/telegraf/telegraf.conf
