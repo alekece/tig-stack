@@ -22,6 +22,7 @@ services:
             - influxdb
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
+            - /proc:/host/proc
         privileged: true
         restart: always
         env_file:
