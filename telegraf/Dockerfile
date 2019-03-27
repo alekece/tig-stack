@@ -8,10 +8,12 @@ USER root
 
 ADD telegraf.template.conf /telegraf.template.conf
 
-RUN apt-get update && apt-get -y install build-essential hddtemp
+RUN apt-get update && apt-get -y install build-essential hddtemp python3
 
+ADD scripts /scripts
 ADD run.sh /run.sh
-RUN chmod +x /*.sh
+
+RUN chmod +x /*.sh /scripts/*
 
 CMD ["/run.sh"]
 
