@@ -40,13 +40,13 @@ $ docker-compose up -d
     $ sudo groupadd docker
     ``` 
 
-    1. Add your user to the `docker` group:
+    2. Add your user to the `docker` group:
 
     ```bash
     $ usermod -aG docker $USER
     ```
 
-    1. Reboot your machine
+    3. Reboot your machine
 
 Then access graphana at `http://localhost:3000`.
 
