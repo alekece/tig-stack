@@ -1,4 +1,4 @@
-FROM grafana/grafana:latest
+FROM grafana/grafana:5.4.3
 
 LABEL author="Alexis Le Provost <alexis.leprovost@outlook.com>"
 LABEL version="1.0.0"
