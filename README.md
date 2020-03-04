@@ -43,7 +43,7 @@ $ docker-compose up -d
     2. Add your user to the `docker` group:
 
     ```bash
-    $ usermod -aG docker $USER
+    $ sudo usermod -aG docker $USER
     ```
 
     3. Reboot your machine
