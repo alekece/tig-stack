@@ -51,4 +51,4 @@ $ docker-compose up -d
 Then access graphana at `http://localhost:3000`.
 
 ## License
-Copyright © 2019 ALexis Le Provost. See LICENSE for details.
+Copyright © 2020 Alexis Le Provost. See LICENSE for details.
