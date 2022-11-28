@@ -3,7 +3,7 @@ version: "3"
 services:
     influxdb:
         build: ./influxdb
-        container_name: influxdb
+        container_name: ${CONTAINER_PREFIX}_influxdb
         ports:
             - ${INFLUXDB_PORT}:${INFLUXDB_PORT}
         volumes:
@@ -17,7 +17,7 @@ services:
 
     telegraf:
         build: ./telegraf
-        container_name: telegraf
+        container_name: ${CONTAINER_PREFIX}_telegraf
         links:
             - influxdb
         volumes:
@@ -32,7 +32,7 @@ services:
             
     grafana:
         build: ./grafana
-        container_name: grafana
+        container_name: ${CONTAINER_PREFIX}_grafana
         ports: 
             - ${GRAFANA_PORT}:${GRAFANA_PORT}
         links:
