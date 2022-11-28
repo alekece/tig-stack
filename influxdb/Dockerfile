@@ -9,7 +9,4 @@ USER root
 ADD influxdb.template.conf /influxdb.template.conf
 
 ADD run.sh /run.sh
-RUN chmod +x /run.sh
-
-CMD ["/run.sh"]
-
+ENTRYPOINT ["bash", "/run.sh"]

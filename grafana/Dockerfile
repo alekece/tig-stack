@@ -12,9 +12,9 @@ RUN apt-get -q update &&\
     apt-get -q autoremove &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
-ADD run.sh /run.sh
-RUN chmod +x /run.sh
 RUN mkdir -p /opt/grafana/dashboards
-ADD ["*.json", "/opt/grafana/dashboards/"]
-ADD ["default-dashboard.yaml", "/etc/grafana/provisioning/dashboards/"]
-CMD ["/run.sh"]
+ADD *.json /opt/grafana/dashboards/
+ADD default-dashboard.yaml /etc/grafana/provisioning/dashboards/
+
+ADD run.sh /run.sh
+ENTRYPOINT ["bash", "/run.sh"]
