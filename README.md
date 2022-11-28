@@ -3,6 +3,9 @@
 [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) handle massive amounts of time-stamped information.  
 [Grafana](https://grafana.com/) is an open platform for beautiful analytics and monitoring.  
 
+![System dashboard](./docs/system_dashboard.png?raw=true "System dashboard")
+![Docker dashboard](./docs/docker_dashboard.png?raw=true "Docker dashboard")
+
 ## Requirements
 As docker images, TIG stack needs:
 
