@@ -29,11 +29,11 @@ To be installed on your machine.
 Modify it according to your needs and build your custom TIG stack:
 
 ```bash
-$ docker-compose up -d 
+$ docker compose up -d
 ```
 
 ### Known issues
-* `docker-compose` command fails for non-root user
+* `docker compose` command fails for non-root user
     1. Create the `docker` group if not exists:
 
     ```bash
