@@ -1,4 +1,4 @@
-FROM telegraf:latest
+FROM telegraf:1.24
 
 LABEL author="Alexis Le Provost <alexis.leprovost@outlook.com>"
 LABEL version="1.0.0"
