@@ -51,7 +51,7 @@ $ docker compose up -d
 
     3. Reboot your machine
 
-Then access graphana at `http://localhost:3000`.
+Then access graphana at `http://localhost:3000` (or replace the default port with your **GRAPHANA_PORT**'s value).
 
 ## License
 Copyright © 2020 Alexis Le Provost. See LICENSE for details.
